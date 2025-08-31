@@ -8,9 +8,12 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Suspense } from "react"
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.app",
+  title: "Bosco-Bags",
+  description: "Created with Bosco-Bags",
+  generator: "vs.code",
+  icons: {
+    icon: "/favicon.png",          // normal favicon
+  },
 }
 
 export default function RootLayout({
