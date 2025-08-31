@@ -146,7 +146,7 @@ export function SiteHeader() {
               className={cn(
                 "px-5 py-4 rounded-xl text-lg font-semibold transition-all flex items-center",
                 pathname === "/about" 
-                  ? "bg-primary text-white shadow-lg" 
+                  ? "bg-primary text-secondary shadow-lg" 
                   : "text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
               )}
             >
@@ -161,7 +161,7 @@ export function SiteHeader() {
               className={cn(
                 "px-5 py-4 rounded-xl text-lg font-semibold transition-all flex items-center",
                 pathname === "/catalogue" 
-                  ? "bg-primary text-white shadow-lg" 
+                  ? "bg-primary text-secondary shadow-lg" 
                   : "text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
               )}
             >
@@ -176,7 +176,7 @@ export function SiteHeader() {
               className={cn(
                 "px-5 py-4 rounded-xl text-lg font-semibold transition-all flex items-center",
                 pathname === "/contact" 
-                  ? "bg-primary text-white shadow-lg" 
+                  ? "bg-primary text-secondary shadow-lg" 
                   : "text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
               )}
             >
