@@ -54,7 +54,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-lg">Call Us</h3>
                       <a href="tel:+919745561967" className="mt-1 text-foreground hover:text-primary transition-colors">
-                        +91 97455 61967
+                        +91 9846127455
                       </a>
                     </div>
                   </div>
@@ -72,7 +72,7 @@ export default function ContactPage() {
                         href="mailto:contact@yourbrand.com" 
                         className="mt-1 text-foreground hover:text-primary transition-colors break-words"
                       >
-                        contact@yourbrand.com
+                       boscobaags@gmail.com
                       </a>
                     </div>
                   </div>
@@ -87,8 +87,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold text-lg">Visit Us</h3>
                       <p className="mt-1 text-foreground">
-                        Your Company Address<br />
-                        City, Country
+                       R4R5+CRJ, Pallipuram, Parudur, Kerala 679305
                       </p>
                     </div>
                   </div>

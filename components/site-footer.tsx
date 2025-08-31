@@ -55,12 +55,12 @@ export function SiteFooter() {
           <ul className="mt-3 text-sm text-gray-600 space-y-2">
             <li>
               <a href="tel:+919745561967" className="hover:text-black transition-colors">
-                +91 97455 61967
+                +91 9846127455
               </a>
             </li>
             <li>
               <a href="mailto:hello@bags.co" className="hover:text-black transition-colors">
-                hello@bags.co
+                boscobaags@gmail.com
               </a>
             </li>
             <li>Mon–Fri, 9am–6pm</li>
