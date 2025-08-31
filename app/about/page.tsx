@@ -14,17 +14,29 @@ export default function AboutPage() {
           {/* Hero Section */}
           <section className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 md:pt-16 pb-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold text-balance">About Us</h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-balance">About Bosco Bags</h1>
               <p className="mt-4 text-lg text-muted-foreground max-w-xl leading-relaxed">
-                Crafting timeless carry solutions. We believe in products that last, combining exquisite design with
-                uncompromising durability.
+                With over 30 years of experience, we've grown from humble beginnings into a trusted name in designing and producing high-quality bags for every need.
               </p>
+              <div className="mt-6 flex items-center gap-4">
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-primary rounded-full mr-2"></div>
+                  <span className="text-sm">Est. 1995</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-primary rounded-full mr-2"></div>
+                  <span className="text-sm">Made in India</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-primary rounded-full mr-2"></div>
+                  <span className="text-sm">Nationwide Supply</span>
+                </div>
+              </div>
             </div>
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-muted">
-              {/* This image would be replaced with an actual brand image */}
+            <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-muted shadow-lg">
               <Image
-                src="/bag-collection.jpg" // Replace with your actual hero image
-                alt="Collection of bags"
+                src="/bag-collection.jpg"
+                alt="Collection of Bosco Bags"
                 layout="fill"
                 objectFit="cover"
                 className="rounded-2xl"
@@ -35,11 +47,10 @@ export default function AboutPage() {
           {/* Our Story */}
           <section className="py-12 bg-card/50 backdrop-blur-sm">
             <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10">
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-muted">
-                {/* Image of someone crafting or a studio */}
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden bg-muted shadow-lg">
                 <Image
-                  src="/story.jpg" // Replace with your actual crafting image
-                  alt="Crafting a bag"
+                  src="/story.jpg"
+                  alt="Bosco Bags manufacturing process"
                   layout="fill"
                   objectFit="cover"
                   className="rounded-2xl"
@@ -48,46 +59,100 @@ export default function AboutPage() {
               <div>
                 <h2 className="text-3xl md:text-4xl font-semibold">Our Story</h2>
                 <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-                  What started as a passionate pursuit in a small workshop has evolved into a brand synonymous with
-                  quality and craftsmanship. We meticulously design and handcraft each item, focusing on the finer
-                  details that make our products stand out. Our journey is one of dedication, innovation, and an
-                  unwavering commitment to our customers.
+                  Founded in 1995, Bosco Bags has over 30 years of experience in the bag manufacturing industry. From humble beginnings, we have grown into a trusted name in designing and producing high-quality bags for every need.
                 </p>
                 <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                  Every stitch tells a story of tradition, modern design, and a future where durability meets elegance.
+                  Today, Bosco Bags proudly supplies its products across India, catering to both retail and wholesale markets. Whether it's a school in need of bulk orders, a business requiring branded promotional bags, or retailers looking for a reliable supplier, Bosco Bags continues to deliver quality that stands out.
                 </p>
               </div>
             </div>
           </section>
 
-          {/* Our Journey (Timeline) */}
+          {/* Our Specialties */}
           <section className="py-12">
+            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <h2 className="text-3xl md:text-4xl font-semibold text-center mb-10">Our Specialties</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[
+                  {
+                    title: "School Bags",
+                    description: "Durable and ergonomic designs that withstand daily use while providing comfort for students.",
+                    icon: (
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14v6l9-5m-9 5l-9-5m9 5v-6m0 0l-9-5m9 5l9-5" />
+                      </svg>
+                    )
+                  },
+                  {
+                    title: "Sports Bags",
+                    description: "Spacious and versatile bags designed for athletes with dedicated compartments for equipment.",
+                    icon: (
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                    )
+                  },
+                  {
+                    title: "Ladies' Bags",
+                    description: "Elegant and fashionable designs that combine functionality with style for everyday use.",
+                    icon: (
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                      </svg>
+                    )
+                  },
+                  {
+                    title: "Tote Bags",
+                    description: "Versatile and eco-friendly totes perfect for shopping, beach trips, or everyday carry.",
+                    icon: (
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                      </svg>
+                    )
+                  },
+                  {
+                    title: "Custom & Promotional Bags",
+                    description: "Customizable solutions for businesses looking to promote their brand with quality bags.",
+                    icon: (
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
+                      </svg>
+                    )
+                  },
+                  {
+                    title: "Retail & Wholesale",
+                    description: "Supplying quality bags to retailers and wholesalers across India with reliable service.",
+                    icon: (
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 14h.01M12 14h.01M16 14h.01" />
+                      </svg>
+                    )
+                  }
+                ].map((item) => (
+                  <div key={item.title} className="rounded-2xl border bg-background p-6 shadow-lg flex flex-col items-center text-center">
+                    <div className="mb-4">{item.icon}</div>
+                    <h3 className="text-xl font-semibold">{item.title}</h3>
+                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Our Journey (Timeline) */}
+          <section className="py-12 bg-card/50 backdrop-blur-sm">
             <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl md:text-4xl font-semibold text-center mb-10">Our Journey</h2>
               <div className="relative border-l-2 border-primary/20 pl-8">
-                {/* Vertical timeline */}
                 {[
-                  { year: "2019", title: "Founded Our Studio", text: "Starting with a vision in a small workshop." },
-                  {
-                    year: "2021",
-                    title: "First Major Milestone",
-                    text: "Successfully shipped our initial 5,000 units.",
-                  },
-                  {
-                    year: "2023",
-                    title: "Embracing Sustainability",
-                    text: "Introduced recycled linings in all new collections.",
-                  },
-                  {
-                    year: "2024",
-                    title: "Global Reach",
-                    text: "Expanded our distribution to international stockists.",
-                  },
-                  {
-                    year: "2025",
-                    title: "Certified Excellence",
-                    text: "Achieved certification for our sustainable materials.",
-                  },
+                  { year: "1995", title: "Foundation", text: "Bosco Bags was established with a vision for quality bag manufacturing." },
+                  { year: "2005", title: "Expansion", text: "Expanded our product line to include school and sports bags." },
+                  { year: "2015", title: "National Reach", text: "Began supplying products across India to retail and wholesale markets." },
+                  { year: "2020", title: "Innovation", text: "Introduced eco-friendly materials and sustainable practices." },
+                  { year: "2024", title: "30 Years Celebration", text: "Celebrating three decades of quality craftsmanship and customer trust." },
                 ].map((m, index) => (
                   <div key={m.year} className="mb-8 relative last:mb-0">
                     <div className="absolute -left-10 top-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center">
@@ -102,29 +167,68 @@ export default function AboutPage() {
             </div>
           </section>
 
+          {/* Our Values */}
+          <section className="py-12">
+            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <h2 className="text-3xl md:text-4xl font-semibold text-center mb-10">Our Core Values</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                {[
+                  {
+                    title: "Quality First",
+                    icon: "👜",
+                    text: "We use strong, tested materials to ensure durability and longevity in all our products.",
+                  },
+                  {
+                    title: "Customer Commitment",
+                    icon: "🤝",
+                    text: "Every bag is designed keeping the end user in mind, prioritizing comfort and functionality.",
+                  },
+                  {
+                    title: "Innovation",
+                    icon: "🎨",
+                    text: "Continuously blending functionality with modern trends to meet evolving customer needs.",
+                  },
+                  {
+                    title: "Sustainability",
+                    icon: "🌱",
+                    text: "Moving towards eco-friendly materials and processes to minimize environmental impact.",
+                  },
+                  {
+                    title: "Trust & Reliability",
+                    icon: "🔒",
+                    text: "Building long-term relationships with clients and partners through consistent quality.",
+                  },
+                ].map((v) => (
+                  <div key={v.title} className="rounded-2xl border bg-background p-6 shadow-lg text-center flex flex-col">
+                    <div className="text-4xl mb-4">{v.icon}</div>
+                    <h3 className="text-lg font-semibold mb-3">{v.title}</h3>
+                    <p className="mt-auto text-sm text-muted-foreground leading-relaxed">{v.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
           {/* Our Production */}
           <section className="py-12 bg-card/50 backdrop-blur-sm">
             <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl md:text-4xl font-semibold text-center mb-10">Our Production</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold text-center mb-10">Our Production Process</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {[
                   {
                     title: "Premium Materials",
-                    description:
-                      "Sourcing only the finest full-grain leather, durable textiles, and YKK hardware for longevity.",
-                    items: ["Full‑grain leather", "Premium textiles", "YKK zippers & metal hardware"],
+                    description: "Sourcing only the finest materials including durable fabrics, reliable zippers, and quality hardware.",
+                    items: ["Durable fabrics", "Reliable zippers", "Quality hardware"],
                   },
                   {
-                    title: "Artisan Craftsmanship",
-                    description:
-                      "Each piece is meticulously crafted with precision cutting, reinforced stitching, and careful edge finishing.",
-                    items: ["Precision cutting", "Reinforced stitching", "Edge finishing"],
+                    title: "Expert Craftsmanship",
+                    description: "Each piece is meticulously crafted with attention to detail, reinforced stitching, and careful finishing.",
+                    items: ["Precision cutting", "Reinforced stitching", "Careful finishing"],
                   },
                   {
-                    title: "Rigorous Quality",
-                    description:
-                      "Undergoing extensive quality control, load testing, and utilizing sustainable packaging solutions.",
-                    items: ["Rigorous QC", "Load & abrasion tests", "Sustainable packaging"],
+                    title: "Rigorous Quality Control",
+                    description: "Undergoing extensive quality checks, durability testing, and sustainable packaging solutions.",
+                    items: ["Quality checks", "Durability tests", "Sustainable packaging"],
                   },
                 ].map((col) => (
                   <div key={col.title} className="rounded-2xl border bg-background p-8 shadow-lg">
@@ -186,106 +290,25 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* Our Values */}
-          <section className="py-12 pb-16 bg-card/50 backdrop-blur-sm">
-            <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl md:text-4xl font-semibold text-center mb-10">Our Values</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {[
-                  {
-                    title: "Uncompromising Quality",
-                    icon: (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-8 w-8 text-primary"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    ),
-                    text: "We believe in creating products that are built to last and age beautifully, reflecting superior craftsmanship.",
-                  },
-                  {
-                    title: "Sustainable Practices",
-                    icon: (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-8 w-8 text-primary"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                        />
-                      </svg>
-                    ),
-                    text: "Our commitment extends to responsible sourcing, mindful production, and minimizing environmental impact.",
-                  },
-                  {
-                    title: "Complete Transparency",
-                    icon: (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-8 w-8 text-primary"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M8 13v-1m4 1v-1m4 1v-1M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
-                        />
-                      </svg>
-                    ),
-                    text: "We foster clear communication and honest practices throughout our entire supply chain and operations.",
-                  },
-                  {
-                    title: "Dedicated Service",
-                    icon: (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-8 w-8 text-primary"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M18 10a6 6 0 00-12 0v2H3a1 1 0 00-1 1v4a1 1 0 001 1h18a1 1 0 001-1v-4a1 1 0 00-1-1h-3v-2z"
-                        />
-                      </svg>
-                    ),
-                    text: "Providing exceptional support that stands firmly behind the quality and longevity of our products.",
-                  },
-                ].map((v) => (
-                  <div key={v.title} className="rounded-2xl border bg-background p-8 shadow-lg text-center">
-                    <div className="flex justify-center mb-4">{v.icon}</div>
-                    <h3 className="text-xl font-semibold">{v.title}</h3>
-                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{v.text}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-12 text-center">
+          {/* Call to Action */}
+          <section className="py-12 pb-16">
+            <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+              <h2 className="text-3xl md:text-4xl font-semibold mb-6">Experience the Bosco Bags Difference</h2>
+              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Join thousands of satisfied customers who have trusted our quality bags for over three decades.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="/catalogue"
+                  className="inline-flex items-center px-6 py-3 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-colors duration-300 text-lg font-medium"
+                >
+                  Explore Our Catalogue
+                </a>
                 <a
                   href="/contact"
                   className="inline-flex items-center px-6 py-3 border border-primary text-primary rounded-full hover:bg-primary hover:text-primary-foreground transition-colors duration-300 text-lg font-medium"
                 >
-                  Get in touch <span className="ml-2">→</span>
+                  Get in Touch <span className="ml-2">→</span>
                 </a>
               </div>
             </div>
