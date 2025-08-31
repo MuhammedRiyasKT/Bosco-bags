@@ -5,18 +5,28 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { ThemeToggle } from "./theme-toggle"
+import { useState, useEffect } from "react" 
 
 export function SiteHeader() {
   const pathname = usePathname()
+  const [open, setOpen] = useState(false)
+
+  // Close menu when route changes
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
+
   const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
     const active = pathname === href
     return (
       <Link
         href={href}
         className={cn(
-          "px-3 py-2 rounded-md text-sm transition",
+          "px-3 py-2 rounded-md text-sm font-medium transition-all duration-200",
           "hover:-translate-y-0.5 hover:shadow-sm",
-          active ? "bg-foreground text-background" : "text-foreground hover:bg-foreground/10",
+          active 
+            ? "bg-foreground text-background shadow-md" 
+            : "text-foreground hover:bg-foreground/10",
         )}
       >
         {children}
@@ -25,11 +35,12 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
+    <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b bg-background/80">
       <div className="container mx-auto px-4 h-14 flex items-center justify-between">
-        <Link href="/" className="font-semibold tracking-wide">
-  <img src="/logo.png" alt="logo" className="w-32 h-auto" />
+       <Link href="/" className="font-semibold tracking-wide">
+  <img src="/logo.png" alt="logo" className="w-30 h-16 object-contain" />
 </Link>
+
 
         <nav className="hidden md:flex items-center gap-1">
           <NavLink href="/">Home</NavLink>
@@ -37,8 +48,134 @@ export function SiteHeader() {
           <NavLink href="/catalogue">Catalogue</NavLink>
           <NavLink href="/contact">Contact</NavLink>
         </nav>
+        
         <div className="flex items-center gap-2">
           <ThemeToggle />
+          
+          <button
+            type="button"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-foreground hover:bg-foreground/10 transition"
+          >
+            <svg
+              className={cn("h-6 w-6 transition-transform", open ? "hidden" : "block")}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+            <svg
+              className={cn("h-6 w-6 transition-transform", open ? "block" : "hidden")}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      {/* Mobile Menu */}
+      <div className={cn(
+        "md:hidden fixed inset-0 z-50 transition-opacity duration-300",
+        open ? "opacity-100" : "opacity-0 pointer-events-none"
+      )}>
+        <div 
+          className="absolute inset-0 bg-black/50 transition-opacity duration-300" 
+          onClick={() => setOpen(false)} 
+        />
+        <div className={cn(
+          "absolute right-0 top-0 h-full w-72 bg-background border-l shadow-xl p-6 transition-transform duration-300",
+          open ? "translate-x-0" : "translate-x-full"
+        )}>
+          <div className="flex items-center justify-between mb-8">
+            <Link href="/" className="font-semibold tracking-wide">
+  <img src="/logo.png" alt="logo" className="w-16 h-16 object-contain" />
+</Link>
+
+            <button
+              aria-label="Close menu"
+              onClick={() => setOpen(false)}
+              className="rounded-md p-2 hover:bg-foreground/10 transition"
+            >
+              <svg
+                className="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+          </div>
+          
+          <nav className="flex flex-col space-y-4">
+            <Link
+              href="/"
+              onClick={() => setOpen(false)}
+              className={cn(
+                "px-4 py-3 rounded-lg text-base font-medium transition-all",
+                pathname === "/" 
+                  ? "bg-foreground text-background shadow-md" 
+                  : "text-foreground hover:bg-foreground/10"
+              )}
+            >
+              Home
+            </Link>
+            <Link
+              href="/about"
+              onClick={() => setOpen(false)}
+              className={cn(
+                "px-4 py-3 rounded-lg text-base font-medium transition-all",
+                pathname === "/about" 
+                  ? "bg-foreground text-background shadow-md" 
+                  : "text-foreground hover:bg-foreground/10"
+              )}
+            >
+              About
+            </Link>
+            <Link
+              href="/catalogue"
+              onClick={() => setOpen(false)}
+              className={cn(
+                "px-4 py-3 rounded-lg text-base font-medium transition-all",
+                pathname === "/catalogue" 
+                  ? "bg-foreground text-background shadow-md" 
+                  : "text-foreground hover:bg-foreground/10"
+              )}
+            >
+              Catalogue
+            </Link>
+            <Link
+              href="/contact"
+              onClick={() => setOpen(false)}
+              className={cn(
+                "px-4 py-3 rounded-lg text-base font-medium transition-all",
+                pathname === "/contact" 
+                  ? "bg-foreground text-background shadow-md" 
+                  : "text-foreground hover:bg-foreground/10"
+              )}
+            >
+              Contact
+            </Link>
+          </nav>
         </div>
       </div>
     </header>

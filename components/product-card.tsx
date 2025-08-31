@@ -54,7 +54,6 @@ export function ProductCard({
         <div className="p-4">
           <p className="font-medium">{product.title}</p>
           <p className="text-sm text-muted-foreground">{product.subtitle}</p>
-          <p className="mt-2 text-sm font-semibold">${product.price.toFixed(2)}</p>
         </div>
       </motion.article>
     </Link>

@@ -6,7 +6,6 @@ import { ProductCard } from "@/components/product-card"
 import type { Product } from "@/data/products"
 import { Button } from "@/components/ui/button"
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
-import { Slider } from "@/components/ui/slider"
 
 type Props = {
   products: Product[]
@@ -21,29 +20,22 @@ export function CatalogueClient({ products, pageSize = 9 }: Props) {
   }, [products])
 
   const [category, setCategory] = useState<string>("All")
-  const prices = useMemo(() => {
-    const vals = products.map((p) => p.price)
-    return { min: Math.min(...vals), max: Math.max(...vals) }
-  }, [products])
-  const [priceRange, setPriceRange] = useState<number[]>([prices.min, prices.max])
 
   const [page, setPage] = useState<number>(1)
 
   const filtered = useMemo(() => {
     return products.filter((p) => {
       if (category !== "All" && p.category !== category) return false
-      const [min, max] = priceRange
-      return p.price >= min && p.price <= max
+      return true
     })
-  }, [products, category, priceRange])
+  }, [products, category])
 
   useEffect(() => {
     setPage(1)
-  }, [category, priceRange])
+  }, [category])
 
   const resetFilters = () => {
     setCategory("All")
-    setPriceRange([prices.min, prices.max])
     setPage(1)
   }
 
@@ -57,7 +49,7 @@ export function CatalogueClient({ products, pageSize = 9 }: Props) {
       >
         <div className="flex flex-col gap-4 md:grid md:grid-cols-12 md:items-end md:gap-4">
           {/* Category */}
-          <div className="md:col-span-4">
+          <div className="md:col-span-10">
             <label className="mb-1 block text-sm text-muted-foreground">Category</label>
             <Select value={category} onValueChange={(v) => setCategory(v)}>
               <SelectTrigger className="w-full">
@@ -73,28 +65,6 @@ export function CatalogueClient({ products, pageSize = 9 }: Props) {
             </Select>
           </div>
 
-          {/* Price range slider */}
-          <div className="md:col-span-6">
-            <div className="flex items-center justify-between">
-              <label className="mb-1 block text-sm text-muted-foreground">Price range</label>
-              <span className="text-xs text-muted-foreground">
-                ${priceRange[0]} – ${priceRange[1]}
-              </span>
-            </div>
-            <Slider
-              min={prices.min}
-              max={prices.max}
-              step={1}
-              value={priceRange}
-              onValueChange={(vals) => {
-                // vals is number[] from Radix Slider; ensure two thumbs
-                if (Array.isArray(vals) && vals.length === 2)
-                  setPriceRange([Math.min(vals[0], vals[1]), Math.max(vals[0], vals[1])])
-              }}
-              className="mt-2"
-            />
-          </div>
-
           {/* Reset */}
           <div className="md:col-span-2">
             <Button onClick={resetFilters} variant="outline" className="w-full bg-transparent">
@@ -104,13 +74,7 @@ export function CatalogueClient({ products, pageSize = 9 }: Props) {
         </div>
 
         <div className="mt-3 text-xs text-muted-foreground">
-          {filtered.length === 0 ? (
-            <>Showing 0 of 0 items</>
-          ) : (
-            <>
-              Showing {priceRange[0]}–{priceRange[1]} of {filtered.length} items
-            </>
-          )}
+          {filtered.length === 0 ? <>Showing 0 items</> : <>Showing {filtered.length} items</>}
         </div>
       </motion.div>
 
@@ -139,9 +103,7 @@ export function CatalogueClient({ products, pageSize = 9 }: Props) {
 
       {filtered.length > 0 && (
         <nav aria-label="Catalogue pagination" className="flex flex-col items-center justify-between gap-3 sm:flex-row">
-          <div className="text-xs text-muted-foreground">
-            Showing {priceRange[0]}–{priceRange[1]} of {filtered.length}
-          </div>
+          <div className="text-xs text-muted-foreground">Total {filtered.length} items</div>
           <div className="flex items-center gap-2">
             <Button
               variant="outline"
