@@ -5,7 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { ThemeToggle } from "./theme-toggle"
-import { useState, useEffect } from "react" 
+import { useState, useEffect } from "react"
 
 export function SiteHeader() {
   const pathname = usePathname()
@@ -24,8 +24,8 @@ export function SiteHeader() {
         className={cn(
           "px-3 py-2 rounded-md text-sm font-medium transition-all duration-200",
           "hover:-translate-y-0.5 hover:shadow-sm",
-          active 
-            ? "bg-foreground text-background shadow-md" 
+          active
+            ? "bg-foreground text-background shadow-md"
             : "text-foreground hover:bg-foreground/10",
         )}
       >
@@ -47,10 +47,10 @@ export function SiteHeader() {
           <NavLink href="/catalogue">Catalogue</NavLink>
           <NavLink href="/contact">Contact</NavLink>
         </nav>
-        
+
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          
+
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -86,24 +86,31 @@ export function SiteHeader() {
           </button>
         </div>
       </div>
-      
+
       {/* Mobile Menu - With specific background color */}
-      <div className={cn(
-        "md:hidden fixed inset-0 z-50 transition-opacity duration-300",
-        open ? "opacity-100" : "opacity-0 pointer-events-none"
-      )}>
-        <div 
-          className="absolute inset-0 bg-black/70 transition-opacity duration-300" 
-          onClick={() => setOpen(false)} 
+      <div
+        className={cn(
+          "md:hidden fixed inset-0 z-50 transition-opacity duration-300",
+          open ? "opacity-100" : "opacity-0 pointer-events-none"
+        )}
+      >
+        {/* Overlay Background */}
+        <div
+          className="absolute inset-0 bg-black/70 transition-opacity duration-300"
+          onClick={() => setOpen(false)}
         />
-        <div className={cn(
-          "absolute right-0 top-0 h-full w-80 bg-white dark:bg-gray-900 border-l-2 border-primary/30 shadow-2xl p-6 transition-transform duration-300 flex flex-col",
-          open ? "translate-x-0" : "translate-x-full"
-        )}>
+
+        {/* Sidebar */}
+        <div
+          className={cn(
+            "absolute right-0 top-0 h-screen w-80 bg-zinc-800 border-l-2 border-primary/30 shadow-2xl p-6 transition-transform duration-300 flex flex-col",
+            open ? "translate-x-0" : "translate-x-full"
+          )}
+        >
           <div className="flex items-center justify-between mb-10 pb-4 border-b border-gray-200 dark:border-gray-700">
             <Link href="/" className="font-semibold tracking-wide">
-          <img src="/logo.png" alt="logo" className="w-30 h-16 object-contain" />
-        </Link>
+              <img src="/logo.png" alt="logo" className="w-30 h-16 object-contain" />
+            </Link>
             <button
               aria-label="Close menu"
               onClick={() => setOpen(false)}
@@ -123,15 +130,15 @@ export function SiteHeader() {
               </svg>
             </button>
           </div>
-          
+
           <nav className="flex flex-col space-y-3 flex-grow">
             <Link
               href="/"
               onClick={() => setOpen(false)}
               className={cn(
                 "px-5 py-4 rounded-xl text-lg font-semibold transition-all flex items-center",
-                pathname === "/" 
-                  ? "bg-primary text-secondary shadow-lg" 
+                pathname === "/"
+                  ? "bg-primary text-secondary shadow-lg"
                   : "text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
               )}
             >
@@ -145,8 +152,8 @@ export function SiteHeader() {
               onClick={() => setOpen(false)}
               className={cn(
                 "px-5 py-4 rounded-xl text-lg font-semibold transition-all flex items-center",
-                pathname === "/about" 
-                  ? "bg-primary text-secondary shadow-lg" 
+                pathname === "/about"
+                  ? "bg-primary text-secondary shadow-lg"
                   : "text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
               )}
             >
@@ -160,8 +167,8 @@ export function SiteHeader() {
               onClick={() => setOpen(false)}
               className={cn(
                 "px-5 py-4 rounded-xl text-lg font-semibold transition-all flex items-center",
-                pathname === "/catalogue" 
-                  ? "bg-primary text-secondary shadow-lg" 
+                pathname === "/catalogue"
+                  ? "bg-primary text-secondary shadow-lg"
                   : "text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
               )}
             >
@@ -175,8 +182,8 @@ export function SiteHeader() {
               onClick={() => setOpen(false)}
               className={cn(
                 "px-5 py-4 rounded-xl text-lg font-semibold transition-all flex items-center",
-                pathname === "/contact" 
-                  ? "bg-primary text-secondary shadow-lg" 
+                pathname === "/contact"
+                  ? "bg-primary text-secondary shadow-lg"
                   : "text-gray-700 dark:text-gray-200 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
               )}
             >
@@ -186,7 +193,7 @@ export function SiteHeader() {
               Contact
             </Link>
           </nav>
-          
+
           <div className="pt-8 mt-auto border-t border-gray-200 dark:border-gray-700">
             <div className="flex justify-center">
               <ThemeToggle />
